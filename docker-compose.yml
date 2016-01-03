@@ -4,7 +4,7 @@ db:
     POSTGRES_USER: guess
     POSTGRES_PASSWORD: 123123
 web:
-  image: php:apache
+  build: docker
   volumes:
     - "./vhost.conf:/etc/apache2/sites-enabled/000-default.conf"
     - ".:/var/www/html"
