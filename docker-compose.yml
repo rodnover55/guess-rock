@@ -3,7 +3,8 @@ db:
 web:
   image: php:apache
   volumes:
-    - /home/vagrant/project/public:/var/www/html
+    - "./vhost.conf:/etc/apache2/sites-enabled/000-default.conf"
+    - ".:/var/www/html"
   ports: 
     - "80:80"
 
