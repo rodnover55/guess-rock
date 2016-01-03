@@ -1,5 +1,8 @@
 db:
   image: postgres
+  environment:
+    POSTGRES_USER: guess
+    POSTGRES_PASSWORD: 123123
 web:
   image: php:apache
   volumes:
@@ -7,4 +10,5 @@ web:
     - ".:/var/www/html"
   ports: 
     - "80:80"
-
+  links:
+    - db

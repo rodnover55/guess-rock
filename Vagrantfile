@@ -15,6 +15,7 @@ Vagrant.configure(2) do |config|
     which docker-compose || curl -L https://github.com/docker/compose/releases/download/1.5.2/docker-compose-`uname -s`-`uname -m` | sudo tee /usr/local/bin/docker-compose > /dev/null
     sudo chmod +x /usr/local/bin/docker-compose
     cd /home/vagrant/project
-   docker-compose up -d
+    docker-compose up -d
+    cp .env.example .env
   SHELL
 end
