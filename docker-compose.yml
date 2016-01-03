@@ -3,6 +3,8 @@ db:
   environment:
     POSTGRES_USER: guess
     POSTGRES_PASSWORD: 123123
+  ports:
+    - "5432:5432"
 web:
   build: docker
   volumes:
