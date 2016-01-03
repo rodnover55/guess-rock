@@ -1,0 +1,9 @@
+db:
+  image: postgres
+web:
+  image: php:apache
+  volumes:
+    - /home/vagrant/project/public:/var/www/html
+  ports: 
+    - "80:80"
+
