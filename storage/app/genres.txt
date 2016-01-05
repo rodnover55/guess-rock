@@ -1,0 +1,61 @@
+alternative metal
+black metal
+brutal death metal
+christian metal
+cyber metal
+death metal
+doom metal
+folk metal
+glam metal
+gothic metal
+groove metal
+industrial metal
+j-metal
+melodic death metal
+melodic power metal
+nu metal
+pagan black metal
+power metal
+progressive metal
+speed metal
+symphonic metal
+technical death metal
+thrash metal
+viking metal
+alternative rock
+art rock
+folk rock
+funk rock
+hard rock
+indie rock
+j-poprock
+j-rock
+k-rock
+math rock
+noise rock
+pop rock
+post rock
+progressive rock
+psychedelic rock
+reggae rock
+russian rock
+soft rock
+symphonic rock
+breakcore
+death core
+digital hardcore
+doomcore
+grindcore
+hardcore
+j-core
+mathcore
+metalcore
+nerdcore
+post-hardcore
+speedcore
+thrash core
+grunge
+post-grunge
+punk
+ska punk
+pop punk
