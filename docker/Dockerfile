@@ -81,6 +81,7 @@ RUN apt-get update &&  apt-get install -y libpq-dev
 COPY apache2-foreground /usr/local/bin/
 RUN chmod +x /usr/local/bin/apache2-foreground
 RUN ln -s /etc/apache2/mods-available/rewrite.load /etc/apache2/mods-enabled/rewrite.load
+RUN rm /etc/apache2/sites-available/*
 WORKDIR /var/www/html
 
 EXPOSE 80

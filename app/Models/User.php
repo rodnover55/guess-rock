@@ -15,7 +15,7 @@ class User extends BaseModel implements
     CanResetPasswordContract
 {
     use Authenticatable, Authorizable, CanResetPassword;
-    
+
     /**
      * The attributes excluded from the model's JSON form.
      *
@@ -24,4 +24,8 @@ class User extends BaseModel implements
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function connections() {
+        return $this->hasMany(Social::class);
+    }
 }

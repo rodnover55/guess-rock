@@ -38,5 +38,10 @@ return [
         'url' => 'http://developer.echonest.com/api/v4/',
         'api_key' => '4KTWLAYRMALFLYEVS',
         'threshold' => 10
+    ],
+    'facebook' => [
+        'client_id' => env('FACEBOOK_ID'),
+        'client_secret' => env('FACEBOOK_SECRET'),
+        'redirect' => env('FACEBOOK_URL'),
     ]
 ];
