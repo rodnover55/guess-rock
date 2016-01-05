@@ -9,7 +9,8 @@
         "laravel/framework": "5.2.*",
         "laravel/socialite": "^2.0",
         "socialiteproviders/vkontakte": "^1.1",
-        "guzzlehttp/guzzle": "~6.0"
+        "guzzlehttp/guzzle": "~6.0",
+        "doctrine/dbal": "~2.5.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
