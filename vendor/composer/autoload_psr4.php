@@ -43,5 +43,6 @@ return array(
     'DeepCopy\\' => array($vendorDir . '/myclabs/deep-copy/src/DeepCopy'),
     'ClassPreloader\\' => array($vendorDir . '/classpreloader/classpreloader/src'),
     'Carbon\\' => array($vendorDir . '/nesbot/carbon/src/Carbon'),
+    'App\\DAL\\Model\\' => array($baseDir . '/app/Models'),
     'App\\' => array($baseDir . '/app'),
 );

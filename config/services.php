@@ -34,5 +34,8 @@ return [
         'key'    => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
-
+    'echonest' => [
+        'url' => 'http://developer.echonest.com/api/v4/',
+        'api_key' => '4KTWLAYRMALFLYEVS'
+    ]
 ];
