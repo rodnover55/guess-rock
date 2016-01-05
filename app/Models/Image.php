@@ -9,6 +9,6 @@
 namespace App\Models;
 
 
-class Image {
+class Image extends BaseModel {
     
 }

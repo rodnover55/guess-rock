@@ -46,11 +46,10 @@ class GetAllGenres extends Command
         $genres = $this->genreService->getAllGenres();
 
         foreach ($genres as $genre) {
-            $model = new Genre([
-                'name' => $genre['name']
-            ]);
-
-            $model->save();
+            Genre::updateOrCreate(['name' => $genre['name']], [
+                    'name' => $genre['name'],
+                    'approved' => true
+                ]);
         }
     }
 }

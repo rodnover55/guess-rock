@@ -30,12 +30,13 @@ return [
     ],
 
     'stripe' => [
-        'model'  => App\User::class,
+        'model'  => App\Models\User::class,
         'key'    => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
     'echonest' => [
         'url' => 'http://developer.echonest.com/api/v4/',
-        'api_key' => '4KTWLAYRMALFLYEVS'
+        'api_key' => '4KTWLAYRMALFLYEVS',
+        'threshold' => 10
     ]
 ];

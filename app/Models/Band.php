@@ -9,6 +9,8 @@
 namespace App\Models;
 
 
-class Band {
-    
+class Band extends BaseModel{
+    public function images() {
+        $this->hasMany('images');
+    }
 }
