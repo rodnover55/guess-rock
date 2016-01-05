@@ -10,7 +10,7 @@ use Illuminate\Session\SessionManager;
 /**
  * @author Sergei Melnikov <me@rnr.name>
  */
-class FacebookController extends Controller
+class VkController extends Controller
 {
     public function __construct()
     {
@@ -21,7 +21,7 @@ class FacebookController extends Controller
 
     public function redirectToProvider(Socialite $socialite, SessionManager $manager)
     {
-        $response = $socialite->driver('facebook')->redirect();
+        $response = $socialite->with('vkontakte')->redirect();
 
         $manager->driver()->save();
 
@@ -31,9 +31,9 @@ class FacebookController extends Controller
     public function handleProviderCallback(Guard $auth, Socialite $socialite,
                                            UsersService $userService, SessionManager $manager)
     {
-        $user = $socialite->driver('facebook')->user();
+        $user = $socialite->with('vkontakte')->user();
 
-        $authUser = $userService->findOrCreateByFacebook($user);
+        $authUser = $userService->findOrCreateByVk($user);
 
         $auth->login($authUser);
 
@@ -41,5 +41,4 @@ class FacebookController extends Controller
 
         return redirect('/');
     }
-
 }

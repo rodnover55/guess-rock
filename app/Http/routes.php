@@ -13,5 +13,9 @@
 
 Route::get('/', 'TaskController@index');
 
+Route::get('/auth/vk', 'Auth\Socials\VkController@redirectToProvider');
+Route::get('/auth/vk/callback', 'Auth\Socials\VkController@handleProviderCallback');
+
 Route::get('/auth/facebook', 'Auth\Socials\FacebookController@redirectToProvider');
 Route::get('/auth/facebook/callback', 'Auth\Socials\FacebookController@handleProviderCallback');
+
