@@ -29,6 +29,7 @@ var angularFilesort = require('gulp-angular-filesort');
 var notify = require('gulp-notify');
 var ngHtml2Js = require("gulp-ng-html2js");
 var minifyHtml = require("gulp-minify-html");
+var bootstrap = require('bootstrap-stylus');
 
 // Set some defaults
 var isDev = true;
@@ -48,7 +49,8 @@ gulp.task('stylus', function() {
                 'name': 'embedurl',
                 'paths': ['.', 'public/src/img/embed'], //искать сначала в текущей папке, если нет то в общей папке
                 'limit': false
-            }
+            },
+            'use': [bootstrap()]
         }))
         .pipe(prefix())
         .pipe(gulpif(isProd, csso()))
