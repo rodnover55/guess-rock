@@ -38,6 +38,10 @@ class ApproveGenres extends Command
      */
     public function handle()
     {
+        Genre::query()->update([
+            'approved' => false
+        ]);
+
         $genres = explode("\n", file_get_contents("php://stdin"));
 
         foreach ($genres as $genre) {
