@@ -24,6 +24,10 @@ class EchoNestService {
 
     public function updateArtists($genres) {
         foreach ($genres as $genre) {
+            if (empty($genre)) {
+                continue;
+            }
+
             $artists = $this->uploadBandsByGenre($genre->name);
 
             foreach ($artists as $artist) {
@@ -37,13 +41,12 @@ class EchoNestService {
                         'name' => $artist['name'],
                         'data' => json_encode($artist['data']),
                         'assigned_genre' => $mainGenre
-                    ])
-                    ->get()->toArray();
+                    ])->toArray();
 
                 foreach ($artist['data']['images'] as $image) {
                     Image::updateOrCreate( ['link' => $image], [
                             'link' => $image,
-                            'band_id' => $band[0]['id'],
+                            'band_id' => $band['id'],
                             'status' => 'new'
                         ]);
                 }
@@ -78,16 +81,6 @@ class EchoNestService {
         }
 
         return $genres;
-    }
-
-    public function getBandsByStyle($genre) {
-        $bands = Band::where('assigned_genre', $genre)->lists();
-
-        if (count($bands) < config('services.echonest.threshold')) {
-            event(app(NeedMoreBands::class)->setGenre($genre));
-        }
-
-        return $bands;
     }
 
     public function uploadBandsByGenre($genre, $count = 100) {

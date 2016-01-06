@@ -8,6 +8,7 @@
 
 return [
     'tasks' => [
-        'count' => 10
+        'count' => 10,
+        'choices' => 4
     ]
 ];

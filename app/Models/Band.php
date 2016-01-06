@@ -11,6 +11,6 @@ namespace App\Models;
 
 class Band extends BaseModel{
     public function images() {
-        $this->hasMany('images');
+        return $this->hasMany(Image::class);
     }
 }
