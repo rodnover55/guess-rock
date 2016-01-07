@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers;
+use App\Services\GameService;
 use Illuminate\Http\Request;
 
 /**
@@ -7,8 +8,14 @@ use Illuminate\Http\Request;
  */
 class TaskController extends Controller
 {
-    public function index(Request $request) {
-        dd((array)$request->user());
-        return view('task');
+    public function index(Request $request, GameService $gameService) {
+        $game = $gameService->generateGame($request->user() ?? null);
+
+        session(['game_id'=> $game['id']]);
+
+        return view('task', [
+            'task' => array_only($game['tasks'][0], ['image', 'choices']),
+            'task_number' => 0
+        ]);
     }
 }

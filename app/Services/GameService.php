@@ -12,14 +12,14 @@ namespace App\Services;
 use App\DAL\Model\Genre;
 use App\Events\NeedMoreBands;
 use App\Models\Band;
+use App\Models\Game;
 use Illuminate\Support\Facades\DB;
 
 class GameService {
-    public function generateGame() {
+    public function generateGame($user_id = null) {
         $genres = $this->getRandomGenres();
 
         $occupiedIds = [];
-
         $tasks = [];
 
         foreach ($genres as $genre) {
@@ -34,11 +34,34 @@ class GameService {
                 'genre' => $genre,
                 'band' => $band->toArray(),
                 'image' => $images[array_rand($images)]['link'],
-                'answer_choices' => array_merge([$genre['name']], $this->getWrongChoices($band))
+                'choices' => array_merge([$genre['name']], $this->getWrongChoices($band))
             ];
         }
 
-        return $tasks;
+        $game = Game::create([
+            'data' => json_encode($tasks),
+            'user_id' => $user_id
+        ]);
+
+        return [
+            'id' => $game->id,
+            'tasks' => $tasks,
+            'user_id' => $user_id
+        ];
+    }
+
+    public function getGame($id) {
+        $game = Game::where('id', $id)
+            ->first(['data'])->toArray();
+
+        return json_decode($game['data'], true);
+    }
+
+    public function setUserId($game_id, $user_id) {
+        Game::where('$id', $game_id)
+            ->update([
+                'user_id' => $user_id
+            ]);
     }
 
     protected function getWrongChoices($band) {
